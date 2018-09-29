@@ -32,6 +32,16 @@ class Writer:
             'truncated': truncated,
             'difficult': difficult,
         })
+        
+        def loadObject(self,arr):
+            for index, [name, xmin,ymin,xmax,ymax] in enumerate(arr):
+                if index <= len(arr):
+                    name = 'person'
+                    xmin = xmin
+                    ymin = ymin
+                    xmax = xmax
+                    ymax = ymax
+                    self.addObject(name, xmin, ymin, xmax, ymax)
 
     def save(self, annotation_path):
         with open(annotation_path, 'w') as file:
